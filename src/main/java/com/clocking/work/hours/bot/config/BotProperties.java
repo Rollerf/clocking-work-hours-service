@@ -1,6 +1,5 @@
-package com.clocking.work.hours.domain;
+package com.clocking.work.hours.bot.config;
 
-import com.clocking.work.hours.factory.JsonPropertySourceFactory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

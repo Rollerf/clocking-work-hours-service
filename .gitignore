@@ -36,4 +36,4 @@ out/
 ### VS Code ###
 .vscode/
 /src/main/resources/bot-credentials.json
-/src/test/java/com/clocking/work/hours/BotPropertiesIntegrationTest.java
+/src/test/java/com/clocking/work/hours/bot/config/BotPropertiesIntegrationTest.java

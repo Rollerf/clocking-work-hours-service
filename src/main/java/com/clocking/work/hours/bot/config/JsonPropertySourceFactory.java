@@ -1,4 +1,4 @@
-package com.clocking.work.hours.factory;
+package com.clocking.work.hours.bot.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.env.MapPropertySource;
