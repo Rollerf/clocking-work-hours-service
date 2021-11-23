@@ -1,7 +1,7 @@
 package com.clocking.work.hours.bot;
 
 import com.clocking.work.hours.bot.config.BotProperties;
-import com.clocking.work.hours.bot.services.HandlerService;
+import com.clocking.work.hours.bot.service.HandlerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 @Component
 public class TelegramBotManagement extends TelegramLongPollingBot {
@@ -26,7 +28,12 @@ public class TelegramBotManagement extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        SendMessage response = handlerService.handleMessageUpdate(update);
+        SendMessage response = null;
+        try {
+            response = handlerService.handleMessageUpdate(update);
+        } catch (GeneralSecurityException | IOException e) {
+            e.printStackTrace();
+        }
 
         sendMessage(response);
     }

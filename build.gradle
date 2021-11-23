@@ -26,11 +26,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	implementation group: 'com.google.apis', name: 'google-api-services-drive', version: 'v3-rev197-1.25.0'
+	implementation group: 'com.google.oauth-client', name: 'google-oauth-client-jetty', version: '1.32.1'
+	implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.32.2'
+
+
 	implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
 
 	implementation group: 'com.github.xabgesagtx', name: 'telegram-spring-boot-starter', version: '0.24'
-
-//	implementation group: 'org.telegram', name: 'telegrambots', version: '5.4.0'
 }
 
 test {

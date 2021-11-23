@@ -37,3 +37,5 @@ out/
 .vscode/
 /src/main/resources/bot-credentials.json
 /src/test/java/com/clocking/work/hours/bot/config/BotPropertiesIntegrationTest.java
+/src/main/resources/credentials.json
+/tokens/StoredCredential

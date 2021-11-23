@@ -1,4 +1,4 @@
-package com.clocking.work.hours.bot.services;
+package com.clocking.work.hours.bot.service;
 
 import com.clocking.work.hours.bot.error.BotException;
 import com.clocking.work.hours.bot.error.ExceptionBotHandler;
@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 @Service
 public class HandlerServiceImpl implements HandlerService {
@@ -21,7 +24,7 @@ public class HandlerServiceImpl implements HandlerService {
     private ExceptionBotHandler exceptionBotHandler;
 
     @Override
-    public SendMessage handleMessageUpdate(Update update) {
+    public SendMessage handleMessageUpdate(Update update) throws GeneralSecurityException, IOException {
         SendMessage replyMessage = null;
 
         Message message = update.getMessage();
@@ -30,7 +33,16 @@ public class HandlerServiceImpl implements HandlerService {
             logger.info("New message from User:{}, chatId: {},  with text: {}",
                     message.getFrom().getUserName(), message.getChatId(), message.getText());
 
-            replyMessage = handleInputMessage(message);
+            switch (message.getText()) {
+                case "/login":
+                    replyMessage = responderService.replyToAuth(message);
+                    break;
+                default:
+                    replyMessage = handleInputMessage(message);
+                    break;
+            }
+
+
         }
 
         return replyMessage;
