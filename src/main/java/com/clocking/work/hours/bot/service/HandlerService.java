@@ -7,5 +7,5 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 
 public interface HandlerService {
-    SendMessage handleMessageUpdate(Update update) throws GeneralSecurityException, IOException;
+    SendMessage handleMessageUpdate(Update update) throws GeneralSecurityException, IOException, InterruptedException;
 }

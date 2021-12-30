@@ -39,3 +39,5 @@ out/
 /src/test/java/com/clocking/work/hours/bot/config/BotPropertiesIntegrationTest.java
 /src/main/resources/credentials.json
 /tokens/StoredCredential
+/Notas
+/src/test/java/com/clocking/work/hours/oauth/services/AuthorizationServiceTest.java

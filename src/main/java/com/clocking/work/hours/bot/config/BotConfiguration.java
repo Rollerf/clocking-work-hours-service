@@ -27,4 +27,6 @@ public class BotConfiguration {
         return Arrays.stream(Optional.ofNullable(supportedLanguagesStr).map(s -> s.split(",")).orElse(new String[]{Locale.US.getLanguage()}))
                 .map(Locale::new).collect(Collectors.toList());
     }
+
+
 }

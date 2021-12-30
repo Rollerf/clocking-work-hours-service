@@ -27,12 +27,16 @@ public class TelegramBotManagement extends TelegramLongPollingBot {
     HandlerService handlerService;
 
     @Override
-    public void onUpdateReceived(Update update) {
+    public void onUpdateReceived(Update update){
         SendMessage response = null;
         try {
             response = handlerService.handleMessageUpdate(update);
         } catch (GeneralSecurityException | IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e){
+            logger.error("Error getting the refresh token");
+            logger.error(e.getMessage());
+            Thread.currentThread().interrupt();
         }
 
         sendMessage(response);
